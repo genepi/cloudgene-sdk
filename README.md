@@ -92,4 +92,4 @@ workflow:
       value: Max Mustermann
 ```
 
-A Eclipse project including a maven file and a cloudgene.yaml file can be found [here]().
+A Eclipse project including a maven file and a cloudgene.yaml file can be found [here](https://github.com/genepi/cloudgene-examples/tree/master/cloudgene-java-examples).
