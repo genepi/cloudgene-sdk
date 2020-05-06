@@ -68,6 +68,10 @@ public abstract class WorkflowContext {
 	
 	private IExternalWorkspace externalWorkspace;
 	
+	public void addDownload(String param, String name, String size, String path) {
+		
+	}
+	
 	public void setExternalWorkspace(IExternalWorkspace externalWorkspace) {
 		this.externalWorkspace = externalWorkspace;
 	}
