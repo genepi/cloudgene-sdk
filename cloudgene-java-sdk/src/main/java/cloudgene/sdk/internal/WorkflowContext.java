@@ -65,7 +65,17 @@ public abstract class WorkflowContext {
 	public abstract String getConfig(String param);
 
 	public abstract void message(String message, int type);
-
+	
+	private IExternalWorkspace externalWorkspace;
+	
+	public void setExternalWorkspace(IExternalWorkspace externalWorkspace) {
+		this.externalWorkspace = externalWorkspace;
+	}
+	
+	public IExternalWorkspace getExternalWorkspace() {
+		return externalWorkspace;
+	}
+	
 	public void ok(String message) {
 		message(message, OK);
 	}
