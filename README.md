@@ -11,27 +11,22 @@ Currently we support the following languages:
 First, you have to create a new java project and include our cloudgene-java-sdk library. We have a maven repository for that library:
 
 ```xml
-<repositories>
-	<repository>
-		<id>genepi-maven-repository</id>
-		<url>https://raw.github.com/genepi/maven-repository/mvn-repo/</url>
-		<snapshots>
-			<enabled>true</enabled>
-			<updatePolicy>always</updatePolicy>
-		</snapshots>
-	</repository>
-</repositories>
+<repository>
+    <id>bintray-genepi-maven</id>
+    <name>bintray</name>
+    <url>https://dl.bintray.com/genepi/maven</url>
+</repository>
 ```
 
 The dependency is the following:
 
 ```xml
 <dependencies>
-	<dependency>
-		<groupId>cloudgene</groupId>
-		<artifactId>cloudgene-java-sdk</artifactId>
-		<version>1.0.0</version>
-	</dependency>
+    <dependency>
+        <groupId>cloudgene</groupId>
+        <artifactId>cloudgene-java-sdk</artifactId>
+        <version>1.0.2</version>
+    </dependency>
 </dependencies>
 ```
 
