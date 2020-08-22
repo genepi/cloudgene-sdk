@@ -9,7 +9,21 @@
 	<packaging>jar</packaging>
 
 	<name>cloudgene-java-sdk</name>
-	<url>http://maven.apache.org</url>
+	<url>http://www.cloudgene.io</url>
+	<description>Java API to write Cloudgene jobs</description>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/genepi/cloudgene-sdk/tree/master</url>
+		<connection>scm:git:https://github.com/genepi/cloudgene-sdk.git</connection>
+		<developerConnection>scm:git:ssh://github.com:genepi/cloudgene-sdk.git</developerConnection>
+	</scm>
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
