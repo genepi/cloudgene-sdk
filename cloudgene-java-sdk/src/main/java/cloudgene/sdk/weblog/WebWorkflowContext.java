@@ -17,7 +17,7 @@ public class WebWorkflowContext extends WorkflowContext {
 
 	private String workingDirectory;
 
-	private String collectorUrl;
+	private Collector collector;
 
 	private Map<String, String> params;
 
@@ -33,8 +33,8 @@ public class WebWorkflowContext extends WorkflowContext {
 
 	}
 
-	public void setCollectorUrl(String collectorUrl) {
-		this.collectorUrl = collectorUrl;
+	public void setCollector(Collector collector) {
+		this.collector = collector;
 	}
 
 	@Override
@@ -201,12 +201,12 @@ public class WebWorkflowContext extends WorkflowContext {
 	}
 
 	public void sendCommand(WebCommand command, Object... params) {
-		if (collectorUrl == null) {
+		if (collector == null) {
 			return;
 		}
 		WebCommandEvent event = new WebCommandEvent(command, params);
 		try {
-			event.sendTo(collectorUrl);
+			collector.sendEvent(event);
 		} catch (Exception e) {
 			System.err.println("Send event to weblog failed." + e.toString());
 		}
@@ -234,6 +234,12 @@ public class WebWorkflowContext extends WorkflowContext {
 
 	public void setData(Map<String, Object> data) {
 		this.data = data;
+	}
+
+	public void close() throws Exception {
+		if (collector != null) {
+			collector.close();
+		}
 	}
 
 }

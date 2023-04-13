@@ -32,8 +32,8 @@ public class WebCommandEvent {
 		this.params = params;
 	}
 	
-	public void sendTo(String url) throws IOException, InterruptedException {
-		WebCommandEventUtil.send(this, url);
+	public void sendTo(Collector collector) throws Exception {
+		collector.sendEvent(this);
 	}
 	
 	public void execute(WorkflowContext context) throws IOException {
