@@ -4,16 +4,12 @@ import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import cloudgene.sdk.internal.WorkflowContext;
 import cloudgene.sdk.weblog.Collector;
 import cloudgene.sdk.weblog.WebCommandEvent;
 
 public class FileLog implements Collector {
-
-	private DateFormat formatter = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
 
 	private BufferedOutputStream logStream;
 
@@ -26,6 +22,8 @@ public class FileLog implements Collector {
 
 		switch (event.getCommand()) {
 		case SUBMIT_COUNTER: {
+			String counter = (String) event.getParams()[0];
+			submitCounter(counter);
 			break;
 		}
 		case MESSAGE: {
@@ -62,6 +60,9 @@ public class FileLog implements Collector {
 			break;
 		}
 		case INC_COUNTER: {
+			String counter = (String) event.getParams()[0];
+			int value = ((Integer) event.getParams()[1]);
+			incCounter(counter, value);
 			break;
 		}
 		default:
@@ -76,6 +77,14 @@ public class FileLog implements Collector {
 
 	public void log(String message) throws IOException {
 		write("[LOG] " + message);
+	}
+
+	public void incCounter(String counter, int value) throws IOException {
+		write("[INC] " + counter + " " + value);
+	}
+
+	public void submitCounter(String counter) throws IOException {
+		write("[SUBMIT] " + counter);
 	}
 
 	public void message(String message, int type) throws IOException {
