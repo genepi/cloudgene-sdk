@@ -11,7 +11,7 @@ import cloudgene.sdk.weblog.collectors.WebLog;
 
 public class WebLogRunner {
 	
-	public static String VERSION = "1.2.1";
+	public static String VERSION = "1.2.2";
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException,
 			IllegalAccessException, JsonSyntaxException, JsonIOException, FileNotFoundException {
